@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand"><b>Baal Company</b></a>
+        <ul class="navbar-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <img src="bebe8a2c2b34be363106ef3c6007c10f.jpg" alt="Profile Photo" class="profile-photo">
+            <div class="text-content">
+                <h1 class="judul">Hello, I'm a Web Developer</h1>
+                <p class="desk">A web developer is a professional responsible for designing, coding, and maintaining websites. They ensure that sites are user-friendly, visually appealing, and function well across different devices. Their work involves both front-end and back-end development, utilizing various programming languages and frameworks to create effective web applications. Key Responsibilities of a Web Developer</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>I'm a passionate web developer with experience in creating dynamic and responsive websites. I enjoy coding and continuously learning new technologies.</p>
+    </section>
+
+    <section id="skills" class="section">
+         <h3>Skils</h3>
+         <h4>Apa saja bahasa pemrograman yang saya kuasai untuk menjadi web developer?</h4>
+    
+    <div class="skills">
+    <div class="skill">
+        <img src="HTML5_logo_and_wordmark.svg.png" alt="html" class="logo_bahasa">
+        <p class="isi_bahasa">HTML: Markup language for creating the structure of a web page.</p>
+    </div>
+    <div class="skill">
+        <img src="CSS-Logo-2011.png" alt="css" class="logo_bahasa">
+        <p class="isi_bahasa">CSS: Language for designing and arranging the appearance of a web page.</p>
+    </div>
+    <div class="skill">
+        <img src="JavaScript-Logo.png" alt="js" class="logo_bahasa">
+        <p class="isi_bahasa">JavaScript: Programming language for creating interactive web pages.</p>
+    </div>
+    <div class="skill">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="php" class="logo_bahasa">
+        <p class="isi_bahasa">PHP: Server-side programming language for building dynamic web applications.</p>
+    </div>
+</div>
+    </div>
+    </section>
+    <div id="notification" class="notification hidden">
+        <p id="notification-message"></p>
+        <button id="close-notification">OK</button>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Contact Me</h2>
+            <p>If you would like to get in touch, feel free to reach out via email or connect with me on social media!</p>
+            <div class="form-container"> <!-- New container for centering -->
+                <form action="contact.php" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/baal.374/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@baal.374" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/@baal.374p" target="_blank" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://x.com/baal374" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Baal Company. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.navbar-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+    
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+    
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+            const form = document.querySelector('.contact-form');
+            const notification = document.getElementById('notification');
+            const notificationMessage = document.getElementById('notification-message');
+            const closeNotification = document.getElementById('close-notification');
+            const overlay = document.createElement('div');
+            overlay.classList.add('overlay', 'hidden');
+            document.body.appendChild(overlay);
+        
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+        
+                const formData = new FormData(form);
+        
+                try {
+                    const response = await fetch('contact.php', {
+                        method: 'POST',
+                        body: formData,
+                    });
+        
+                    if (response.ok) {
+                        const result = await response.text();
+                        notificationMessage.textContent = "Message sent successfully!";
+                        showNotification();
+                    } else {
+                        notificationMessage.textContent = "Failed to send message.";
+                        showNotification();
+                    }
+                } catch (error) {
+                    notificationMessage.textContent = "An error occurred. Please try again.";
+                    showNotification();
+                }
+            });
+        
+            closeNotification.addEventListener('click', hideNotification);
+        
+            function showNotification() {
+                notification.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+            }
+        
+            function hideNotification() {
+                notification.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }       
+             
+    </script>
+</body>
+</html>

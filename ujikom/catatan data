@@ -1,0 +1,80 @@
+Untuk menghubungkan kode HTML ini ke database menggunakan PHP, berikut langkah-langkahnya:
+
+1. Persiapkan Database
+Buat database di MySQL, misalnya dengan nama portfolio_db.
+Buat tabel, misalnya contacts untuk menyimpan data kontak:
+sql
+Salin kode
+CREATE TABLE contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+2. Buat File PHP untuk Koneksi Database
+Buat file PHP untuk mengatur koneksi ke database, misalnya db.php:
+
+php
+Salin kode
+<?php
+$host = 'localhost'; // atau nama host server
+$dbname = 'portfolio_db'; // nama database
+$username = 'root'; // username database
+$password = ''; // password database
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error connecting to database: " . $e->getMessage());
+}
+?>
+3. Tambahkan Form Kontak pada HTML
+Ubah bagian Contact Me agar memiliki form untuk penginputan data:
+
+html
+Salin kode
+<form action="contact.php" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+</form>
+4. Buat File PHP untuk Menyimpan Data
+Buat file contact.php untuk menyimpan data ke database:
+
+php
+Salin kode
+<?php
+require 'db.php'; // menyertakan file koneksi database
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+
+    try {
+        $stmt = $pdo->prepare("INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)");
+        $stmt->execute([
+            ':name' => $name,
+            ':email' => $email,
+            ':message' => $message
+        ]);
+
+        echo "Thank you! Your message has been sent.";
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+?>
+5. Menghubungkan dan Menjalankan
+Pastikan semua file (db.php, contact.php) berada di satu folder dengan file utama HTML.
+Pastikan server lokal (seperti XAMPP atau WAMP) aktif.
+Akses file HTML melalui server lokal, misalnya http://localhost/portfolio/index.html.
+Setelah form dikirim, data akan tersimpan di tabel contacts.
+6. Validasi dan Keamanan Tambahan
+Gunakan prepared statements (sudah dilakukan di atas) untuk mencegah SQL Injection.
+Tambahkan validasi input lebih ketat jika diperlukan.
+Implementasikan reCAPTCHA untuk menghindari spam bot.
+"If you are interested, feel free to leave a comment, or you can contact me on the social media platforms listed."

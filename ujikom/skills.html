@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #2c2c2c; /* Warna abu-abu tua */
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h3 {
+            color: #8a2be2; /* Warna ungu */
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h4 {
+            margin-top: 10px;
+            font-size: 1.5em;
+            color: #dcdcdc; /* Warna lebih terang untuk kontras */
+        }
+        .skills {
+            display: flex;
+            justify-content: center; /* Mengatur agar gambar berada di tengah */
+            flex-wrap: wrap; /* Membuat responsif */
+            margin-top: 20px;
+            gap: 20px; /* Jarak antar gambar */
+        }
+        .skill {
+            background-color: #3a3a3a; /* Latar belakang untuk setiap skill */
+            border-radius: 10px; /* Sudut membulat */
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s; /* Animasi */
+            width: 200px; /* Lebar tetap untuk setiap skill */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Bayangan */
+        }
+        .skill:hover {
+            transform: translateY(-5px); /* Efek mengangkat saat hover */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Bayangan lebih dalam saat hover */
+        }
+        img {
+            width: 80px; /* Ukuran gambar yang sama */
+            height: 80px; /* Ukuran gambar yang sama */
+            object-fit: cover; /* Memastikan gambar tetap proporsional */
+            margin-bottom: 10px; /* Jarak antara gambar dan teks */
+        }
+        p {
+            font-size: 0.9em; /* Ukuran font untuk penjelasan */
+            color: #dcdcdc; /* Warna teks penjelasan */
+        }
+    </style>
+</head>
+<body>
+    <h3>Skils</h3>
+    <h4>Apa saja bahasa pemrograman yang saya kuasai untuk menjadi web developer?</h4>
+    
+    <div class="skills">
+        <div class="skill">
+            <img src="HTML5_logo_and_wordmark.svg.png" alt="html">
+            <p>HTML: Bahasa markup untuk membuat struktur halaman web.</p>
+        </div>
+        <div class="skill">
+            <img src="CSS-Logo-2011.png" alt="css">
+            <p>CSS: Bahasa untuk mendesain dan mengatur tampilan halaman web.</p>
+        </div>
+        <div class="skill">
+            <img src="JavaScript-Logo.png" alt="js">
+            <p>JavaScript: Bahasa pemrograman untuk membuat halaman web interaktif.</p>
+        </div>
+        <div class="skill">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="php"> <!-- Gambar PHP yang valid -->
+            <p>PHP: Bahasa pemrograman server-side untuk membangun aplikasi web dinamis.</p>
+        </div>
+    </div>
+</body>
+</html>

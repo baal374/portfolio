@@ -1,0 +1,368 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('f815ce15527de87557785cfdc236ffa0.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    text-align: center;
+}
+.judul, .desk{
+    text-align: left;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(98, 0, 168);
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.navbar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    margin-left: 20px;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+
+.navbar-links a:hover {
+    background-color: #5a0c8f;
+    border-radius: 4px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 200px 20px; /* Padding yang lebih besar untuk desktop */
+    background-color: rgba(138, 43, 226, 0.8); /* Semi-transparent lighter purple */
+    color: #fff;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    margin: auto;
+}
+
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.text-content {
+    max-width: 600px; /* Limit text width for better readability */
+}
+
+.section {
+    padding: 40px 20px;
+    background-color: rgb(47, 47, 47); 
+    margin: 20px auto; /* Margin otomatis untuk pusat */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; /* Lebar maksimum untuk section */
+}
+
+h2 {
+    color: #8a2be2;
+}
+p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.toggle-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#moreInfo {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.footer {
+    background-color: rgb(47, 47, 47);
+    color: #ffffff;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    margin: 10px 0;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #8a2be2;
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+h3 {
+    color: #8a2be2; /* Warna ungu */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+h4 {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #dcdcdc; /* Warna lebih terang untuk kontras */
+    text-align: center;
+}
+.skills {
+    display: flex;
+    justify-content: center; /* Mengatur agar gambar berada di tengah */
+    flex-wrap: wrap; /* Membuat responsif */
+    margin-top: 20px;
+    gap: 20px; /* Jarak antar gambar */
+}
+.skill {
+    background-color: #3a3a3a; /* Latar belakang untuk setiap skill */
+    border-radius: 10px; /* Sudut membulat */
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Animasi */
+    width: 200px; /* Lebar tetap untuk setiap skill */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Bayangan */
+}
+.skill:hover {
+    transform: translateY(-5px); /* Efek mengangkat saat hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Bayangan lebih dalam saat hover */
+}
+.logo_bahasa {
+    width: 80px; /* Ukuran gambar yang sama */
+    height: 80px; /* Ukuran gambar yang sama */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+    margin-bottom: 10px; /* Jarak antara gambar dan teks */
+}
+.isi_bahasa {
+    font-size: 0.9em; /* Ukuran font untuk penjelasan */
+    color: #dcdcdc; /* Warna teks penjelasan */
+    text-align: center;
+}
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.notification.hidden {
+    display: none;
+}
+
+.notification button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notification button:hover {
+    background-color: #0056b3;
+}
+
+/* Overlay to darken background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.overlay.hidden {
+    display: none;
+}
+.form-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 20px 0; /* Add some margin for spacing */
+}
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.contact-form button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Stack navbar items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Padding navbar */
+    }
+    .navbar-brand{
+        font-size: 10px;
+        margin-top: 11px;
+    }
+
+    .navbar-links {
+        flex-direction: row; /* Stack links vertically */
+        margin-top: 10px; /* Margin atas */
+    }
+
+    .navbar-links li {
+        margin-left: 0; /* Menghapus margin kiri */
+        margin-bottom: 10px; /* Menambahkan margin bawah */
+    }
+
+    .hero {
+        padding: 100px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .profile-photo {
+        width: 150px; /* Smaller profile photo for mobile */
+        height: 150px; /* Maintain aspect ratio */
+    }
+
+    .text-content {
+        max-width: 100%; /* Allow text content to use full width */
+    }
+
+    .skills {
+        flex-direction: row; /* Stack skills vertically */
+        align-items: center; /* Center align skills */
+    }
+
+    .skill {
+        width: 90%; /* Make skills take up more width */
+        margin-bottom: 15px; /* Space between skills */
+    }
+
+    .footer {
+        padding: 15px 10px; /* Mengurangi padding footer pada layar kecil */
+    }
+
+    .contact-form {
+        width: 90%; /* Mengatur lebar form kontak menjadi 90% */
+    }
+}
+
+@media (max-width: 480px) {
+    h3 {
+        font-size: 2em; /* Mengurangi ukuran font untuk judul */
+    }
+
+    h4 {
+        font-size: 1.2em; /* Mengurangi ukuran font untuk subjudul */
+    }
+
+    .toggle-button {
+        padding: 8px 12px; /* Mengurangi padding tombol */
+    }
+
+    .notification {
+        width: 90%; /* Mengatur lebar notifikasi menjadi 90% */
+    }
+}
